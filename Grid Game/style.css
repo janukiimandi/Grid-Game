@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em; /* Increased heading size */
+    color: #333;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px; /* Smaller gap between cells */
+    margin: 20px auto;
+    width: 80vw; /* Decreased width for smaller board */
+    max-width: 240px; /* Decreased max-width */
+}
+
+.cell {
+    width: 100%;
+    padding-top: 100%; /* This makes the cell square */
+    background-color: #fff;
+    border: 2px solid #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em; /* Font size for X and O */
+    cursor: pointer;
+}
+
+.cell::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.cell.x::after {
+    content: 'X';
+    position: absolute;
+    color: red;
+}
+
+.cell.o::after {
+    content: 'O';
+    position: absolute;
+    color: blue;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-screen.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .cell {
+        font-size: 1.5em; /* Reduced font size for mobile */
+    }
+}
